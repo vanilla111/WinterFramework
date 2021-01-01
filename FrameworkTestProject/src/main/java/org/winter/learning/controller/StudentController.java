@@ -25,7 +25,7 @@ public class StudentController {
 
     @Action(method = "POST")
     public Data save(Param param) {
-        Map<String, Object> map = param.getMap();
+        Map<String, Object> map = param.getFieldMap();
 //        String stuName = CastUtil.castString(map.get("name"));
 //        String stuId = CastUtil.castString(map.get("stuId"));
 //        Student student = new Student(stuName, stuId);
@@ -39,7 +39,7 @@ public class StudentController {
 
     @Action
     public Data findOneStudent(Param param) {
-        int id = CastUtil.castInt(param.getMap().get("id"));
+        int id = CastUtil.castInt(param.getFieldMap().get("id"));
         Student student = service.findStuById(id);
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("code", "200");

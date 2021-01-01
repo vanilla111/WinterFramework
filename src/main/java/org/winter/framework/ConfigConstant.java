@@ -15,4 +15,6 @@ public interface ConfigConstant {
     String APP_BASE_PACKAGE = "winter.framework.app.base_package";
     String APP_JSP_PATH = "winter.framework.app.jsp_path";
     String APP_ASSET_PATH = "winter.framework.app.asset_path";
+
+    String APP_UPLOAD_LIMIT = "winter.framework.app.upload_limit";
 }

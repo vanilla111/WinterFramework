@@ -9,6 +9,7 @@ import org.winter.framework.annotation.Controller;
 import org.winter.framework.bean.Data;
 import org.winter.framework.bean.Param;
 import org.winter.framework.bean.View;
+import org.winter.framework.helper.UploadHelper;
 
 /**
  * @author wang
@@ -32,10 +33,16 @@ public class HelloController {
 
     @Action("/param")
     public Data param(Param param) {
-        Map<String, Object> map = param.getMap();
+        Map<String, Object> map = param.getFieldMap();
         for (Entry<String, Object> en : map.entrySet()) {
             System.out.println(en.getKey() + ": " + en.getValue());
         }
         return new Data(map);
+    }
+
+    @Action(method = "POST",  value = "/upload")
+    public Data upload(Param param) {
+        UploadHelper.uploadFile("tmp/", param.getFileList("file"));
+        return new Data("success");
     }
 }
